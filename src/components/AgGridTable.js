@@ -13,10 +13,10 @@ export default class extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggleFirstNameOn: true,
-            toggleLastNameOn: true,
-            toggleBranchOn: true,
-            toggleEmailOn: true,
+            // toggleFirstNameOn: true,
+            // toggleLastNameOn: true,
+            // toggleBranchOn: true,
+            // toggleEmailOn: true,
             paginationPageSize: 8,
             pageCount: 10,
             // activePage: 0,
@@ -87,10 +87,8 @@ export default class extends Component {
         this.gridApi.setQuickFilter(document.getElementById('filter-text-box').value);
     }
 
-    onToggleChange = (value, col, set) => {
-        this.setState({
-            [set]: value
-        })
+    // Show/Hide column on Popover Toggle
+    onToggleChange = (value, col) => {
         this.columnApi.setColumnVisible(col, value);
         this.sizeColumnsToFit();
     }
@@ -109,15 +107,17 @@ export default class extends Component {
     //     }
     // }
 
-    updatePopover = e => {
-        this.setState({
-            toggleFirstNameOn: this.columnApi.getColumn('firstName').visible,
-            toggleLastNameOn: this.columnApi.getColumn('lastName').visible,
-            toggleBranchOn: this.columnApi.getColumn('branch').visible,
-            toggleEmailOn: this.columnApi.getColumn('email').visible
-        })
-        this.sizeColumnsToFit();
-    }
+    // Drag column out - Column visibility update in Popover
+    // updatePopover = e => {
+    //     console.log(e)
+    //     this.setState({
+    //         toggleFirstNameOn: this.columnApi.getColumn('firstName').visible,
+    //         toggleLastNameOn: this.columnApi.getColumn('lastName').visible,
+    //         toggleBranchOn: this.columnApi.getColumn('branch').visible,
+    //         toggleEmailOn: this.columnApi.getColumn('email').visible
+    //     })
+    //     this.sizeColumnsToFit();
+    // }
 
     onRemoveSelected = () => {
         const selectedData = this.gridApi.getSelectedRows();

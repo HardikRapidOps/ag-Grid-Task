@@ -35,6 +35,13 @@ export default class extends Component {
         });
     }
 
+    // Change Icon - eye/eyeClosed
+    onChangeState = (value, set) => {
+        this.setState({
+            [set]: value
+        })
+    }
+
     // onChange = e => {
     //     this.setState({
     //         checked: e.target.checked
@@ -71,7 +78,10 @@ export default class extends Component {
                     <EuiButtonToggle
                         label="First Name"
                         iconType={toggleFirstNameOn ? 'eye' : 'eyeClosed'}
-                        onChange={e => onToggleChange(e.target.checked, 'firstName', 'toggleFirstNameOn')}
+                        onChange={e => {
+                            onToggleChange(e.target.checked, 'firstName')
+                            this.onChangeState(e.target.checked, 'toggleFirstNameOn')
+                        }}
                         isSelected={toggleFirstNameOn}
                         isEmpty
                     // isIconOnly
@@ -80,7 +90,10 @@ export default class extends Component {
                     <EuiButtonToggle
                         label="Last Name"
                         iconType={toggleLastNameOn ? 'eye' : 'eyeClosed'}
-                        onChange={e => onToggleChange(e.target.checked, 'lastName', 'toggleLastNameOn')}
+                        onChange={e => {
+                            onToggleChange(e.target.checked, 'lastName')
+                            this.onChangeState(e.target.checked, 'toggleLastNameOn')
+                        }}
                         isSelected={toggleLastNameOn}
                         isEmpty
                     />
@@ -88,7 +101,10 @@ export default class extends Component {
                     <EuiButtonToggle
                         label="Branch"
                         iconType={toggleBranchOn ? 'eye' : 'eyeClosed'}
-                        onChange={e => onToggleChange(e.target.checked, 'branch', 'toggleBranchOn')}
+                        onChange={e => {
+                            onToggleChange(e.target.checked, 'branch')
+                            this.onChangeState(e.target.checked, 'toggleBranchOn')
+                        }}
                         isSelected={toggleBranchOn}
                         isEmpty
                     />
@@ -96,7 +112,10 @@ export default class extends Component {
                     <EuiButtonToggle
                         label="Email"
                         iconType={toggleEmailOn ? 'eye' : 'eyeClosed'}
-                        onChange={e => onToggleChange(e.target.checked, 'email', 'toggleEmailOn')}
+                        onChange={e => {
+                            onToggleChange(e.target.checked, 'email')
+                            this.onChangeState(e.target.checked, 'toggleEmailOn')
+                        }}
                         isSelected={toggleEmailOn}
                         isEmpty
                     />
